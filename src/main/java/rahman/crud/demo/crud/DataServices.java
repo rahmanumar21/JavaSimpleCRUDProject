@@ -12,14 +12,17 @@ public class DataServices {
     @Autowired
     private DataRepository repo;
 
+    // Show all data
     public List<Data> listAll() {
         return (List<Data>) repo.findAll();
     }
 
+    // Save the data
     public void save(Data data) {
         repo.save(data);
     }
 
+    // Get the data by id
     public Data get(Integer id) throws DataNotFoundException {
         Optional<Data> result = repo.findById(id);
 
@@ -29,6 +32,7 @@ public class DataServices {
         throw new DataNotFoundException("Could not find any clients with ID " + id);
     }
 
+    // Delete the data by id
     public void delete(Integer id) throws DataNotFoundException {
         Long count = repo.countById(id);
         if (count == null || count == 0) {
