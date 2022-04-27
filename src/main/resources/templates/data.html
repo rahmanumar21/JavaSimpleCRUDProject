@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.tymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>[[${pageTitle}]]</title>
+    <link rel="stylesheet" type="text/css"
+          th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"/>
+</head>
+<body>
+
+
+<!--Top Nav Bar-->
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#">Demo Application</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link" aria-current="page" th:href="@{/}">HOME</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" th:href="@{/data}">CRUD</a>
+                </li>
+            </ul>
+
+            <form class="container-fluid justify-content-start">
+                <a class="btn btn-sm btn-outline-secondary" th:href="@{/data/new}">Add New</a>
+            </form>
+            <form class="d-flex">
+                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-success" type="submit">Search</button>
+            </form>
+        </div>
+    </div>
+</nav>
+
+<div class="container-lg" style="margin: 50px;">
+
+    <div th:if="${message}" class="alert alert-success text-center">
+        [[${message}]]
+    </div>
+
+    <div class="card">
+        <div class="card-header">
+            [[${pageTitle}]]
+        </div>
+        <div class="card-body">
+            <div class="row">
+                <table class="table table-responsive">
+                    <thead class="table-dark">
+                    <tr>
+                        <th>ID</th>
+                        <th>Full Name</th>
+                        <th>E-email</th>
+                        <th>Phone</th>
+                        <th>Action</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <th:block th:each="data : ${listData}">
+                        <tr>
+                            <td>[[${data.id}]]</td>
+                            <td>[[${data.firstName}]] [[${data.lastName}]]</td>
+                            <td>[[${data.email}]]</td>
+                            <td>[[${data.phone}]]</td>
+                            <td>
+                                <a class="btn btn-sm btn-outline-secondary" th:href="@{'/data/edit/' + ${data.id}}">Edit</a>
+                                <a class="btn btn-sm btn-outline-secondary" th:href="@{'/data/delete/' + ${data.id}}">Delete</a>
+                            </td>
+                        </tr>
+                    </th:block>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+</body>
+</html>

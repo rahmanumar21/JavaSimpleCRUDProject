@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.tymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Demo Application</title>
+    <link rel="stylesheet" type="text/css"
+          th:href="@{/webjars/bootstrap/css/bootstrap.min.css}" />
+</head>
+<body>
+
+<!--Top Nav Bar-->
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#">Demo Application</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" th:href="@{/}">HOME</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" th:href="@{/data}">CRUD</a>
+                </li>
+            </ul>
+            <form class="d-flex">
+                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-success" type="submit">Search</button>
+            </form>
+        </div>
+    </div>
+</nav>
+
+<!-- Welcome -->
+<div class="card mb-3" style="max-width: 540px; margin: 100px;">
+    <div class="row g-0">
+        <div class="col-md-4">
+            <img src="https://yt3.ggpht.com/uVWuDwYPl2AbrcsBjzS5PMxOaRv-ccwATyTmsPlXqRWnYpFPbuIn65Aw1AalO7BlTNVHdzpNWA=s900-c-k-c0x00ffffff-no-rj" class="img-fluid rounded-start" alt="...">
+        </div>
+        <div class="col-md-8">
+            <div class="card-body">
+                <h5 class="card-title">Welcome to my Demo App</h5>
+                <p class="card-text">Technologies: Spring Boot, JPA & Hibernate, MySQL, Thymeleaf, JUnit 5. </p>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
